@@ -1,8 +1,8 @@
-﻿using GraphQl.WebAPI.GraphQl.Models;
+﻿using GraphQL.Types;
 
-using GraphQL.Types;
+using UserManagement.WebAPI.GraphQl.Models;
 
-namespace GraphQl.WebAPI.GraphQl.Types
+namespace UserManagement.WebAPI.GraphQl.Types
 {
     public class AccountType : ObjectGraphType<Account>
     {

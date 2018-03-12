@@ -18,4 +18,9 @@
     <DotNetCliToolReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Tools" Version="2.0.2" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\UserManagement.Queries.Infrastructure\UserManagement.Queries.Infrastructure.csproj" />
+    <ProjectReference Include="..\UserManagement.Queries\UserManagement.Queries.Application.csproj" />
+  </ItemGroup>
+
 </Project>

@@ -1,22 +1,29 @@
-﻿using System.Threading.Tasks;
-
-using GraphQl.WebAPI.GraphQl;
-using GraphQl.WebAPI.GraphQl.Queries;
+﻿using System;
+using System.Threading.Tasks;
 
 using GraphQL;
 using GraphQL.Types;
 
 using Microsoft.AspNetCore.Mvc;
 
-namespace GraphQl.WebAPI.Controllers
+using UserManagement.WebAPI.GraphQl;
+using UserManagement.WebAPI.GraphQl.Queries;
+
+namespace UserManagement.WebAPI.Controllers
 {
     [Route("graphql")]
-    public class CustomerController : Controller
+    public class GraphQlController : Controller
     {
+        private readonly IServiceProvider serviceProvider;
+        public GraphQlController(IServiceProvider serviceProvider)
+        {
+            this.serviceProvider = serviceProvider;
+        }
+
         [HttpPost]
         public async Task<IActionResult> Post([FromBody] GraphQlQuery query)
         {
-            var schema = new Schema { Query = new CustomerQuery() };
+            var schema = new Schema { Query = new CustomerQuery(serviceProvider) };
 
             var result = await new DocumentExecuter().ExecuteAsync(x =>
             {

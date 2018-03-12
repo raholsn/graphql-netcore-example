@@ -1,6 +1,6 @@
 ﻿using GraphQL;
 
-namespace GraphQl.WebAPI.GraphQl
+namespace UserManagement.WebAPI.GraphQl
 {
     public class GraphQlQuery
     {

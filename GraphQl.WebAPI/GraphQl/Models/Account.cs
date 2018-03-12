@@ -1,4 +1,4 @@
-﻿namespace GraphQl.WebAPI.GraphQl.Models
+﻿namespace UserManagement.WebAPI.GraphQl.Models
 {
     public class Account
     {
