@@ -1,6 +1,4 @@
-﻿using System.ComponentModel;
-
-using GraphQl.WebAPI.GraphQl.Models;
+﻿using GraphQl.WebAPI.GraphQl.Models;
 using GraphQl.WebAPI.GraphQl.Types;
 
 using GraphQL.Types;
@@ -14,17 +12,53 @@ namespace GraphQl.WebAPI.GraphQl.Queries
             Field<CustomerType>("customer",
                 arguments: new QueryArguments
                 {
-                    new QueryArgument<IntGraphType>{ Name = "id", Description = "the customers identifier"  },
-                    new QueryArgument<StringGraphType>{Name = "name", Description = "the name of the customer"}
+                    new QueryArgument<IntGraphType> { Name = "id", Description = "the customers identifier" },
+                    new QueryArgument<StringGraphType> { Name = "name", Description = "the name of the customer" }
                 },
                 resolve: GetCustomer);
+            Field<AccountType>("account",
+                arguments: new QueryArguments
+                {
+                    new QueryArgument<IntGraphType> { Name = "id", Description = "the customers identifier" },
+                    new QueryArgument<StringGraphType> { Name = "currency", Description = "the currency" }
+                },
+                resolve: GetAccount);
+        }
+
+        private Account GetAccount(ResolveFieldContext<object> context)
+        {
+            var id = context.GetArgument<int?>("id");
+
+            if (id != null)
+            {
+                return new Account
+                {
+                    Currency = "USD",
+                    Balance = 1000.0,
+                    Id = id
+                };
+            }
+
+            var currency = context.GetArgument<string>("currency");
+
+            if (currency != null)
+            {
+                return new Account
+                {
+                    Currency = "Sek",
+                    Balance = 1000.0,
+                    Id = 1
+                };
+            }
+
+            return null;
         }
 
         private Customer GetCustomer(ResolveFieldContext<object> context)
         {
-            var id = context.GetArgument<int>("id");
+            var id = context.GetArgument<int?>("id");
 
-            if (id != default(int))
+            if (id != null)
             {
                 return new Customer
                 {
@@ -43,7 +77,7 @@ namespace GraphQl.WebAPI.GraphQl.Queries
                 };
             }
 
-            throw new System.NotImplementedException();
+            return null;
         }
     }
 }

@@ -8,8 +8,8 @@ namespace GraphQl.WebAPI.GraphQl.Types
     {
         public CustomerType()
         {
-            Field(x => x.Id).Description("The Id of the Customer.");
-            Field(x => x.Name, nullable: true).Description("The name of the Customer.");
+            Field(x => x.Id, true).Description("The Id of the Customer.");
+            Field(x => x.Name, true).Description("The name of the Customer.");
         }
     }
 }
