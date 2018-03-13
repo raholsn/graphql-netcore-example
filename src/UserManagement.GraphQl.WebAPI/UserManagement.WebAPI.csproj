@@ -19,8 +19,8 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\UserManagement.Queries.Application\UserManagement.Queries.Application.csproj" />
     <ProjectReference Include="..\UserManagement.Queries.Infrastructure\UserManagement.Queries.Infrastructure.csproj" />
-    <ProjectReference Include="..\UserManagement.Queries\UserManagement.Queries.Application.csproj" />
   </ItemGroup>
 
 </Project>

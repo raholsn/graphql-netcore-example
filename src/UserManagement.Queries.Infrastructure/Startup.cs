@@ -10,7 +10,6 @@ namespace UserManagement.Queries.Infrastructure
         public static void Initilize(IServiceCollection services)
         {
             services.AddTransient<ICustomerQueryService, CustomerQueryService>();
-            services.AddTransient<ICustomerRepository, CustomerRepository>();
         }
     }
 }

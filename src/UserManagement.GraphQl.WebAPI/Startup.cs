@@ -26,7 +26,6 @@ namespace UserManagement.WebAPI
         {
           
             services.AddTransient<ICustomerQueryService,CustomerQueryService>();
-            services.AddTransient<ICustomerRepository, CustomerRepository>();
             //services.AddTransient<CustomerQuery>();
             var sp = services.BuildServiceProvider();
             //services.AddTransient<ISchema>(_ => new CustomerSchema(type => (GraphType)sp.GetService(type)) { Query = sp.GetService<CustomerQuery>() });

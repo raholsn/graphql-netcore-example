@@ -5,7 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\UserManagement.Queries\UserManagement.Queries.Application.csproj" />
+    <ProjectReference Include="..\UserManagement.Queries.Application\UserManagement.Queries.Application.csproj" />
   </ItemGroup>
 
   <ItemGroup>
