@@ -1,5 +1,5 @@
 # graphql-netcore
-
+```
 Example queries:
 
 {
@@ -9,3 +9,4 @@ Example queries:
   }
 }
 
+```
